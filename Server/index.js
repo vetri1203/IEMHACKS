@@ -8,6 +8,7 @@ import passRouter from "../Server/router/password.js";
 // import Route from './Routes/Routes.js';
 import { Recruitment } from './controller/JobRecruitment.js';
 import { JobSeeking } from './controller/JobSeeking.js';
+import { CrowdFunding } from './controller/CrowdFund.js';
 const app = express();
 dotenv.config();
 
@@ -32,9 +33,10 @@ app.use("/api/pass",passRouter);
 
 app.post('/job',Recruitment)
 app.post('/apply',JobSeeking);
+app.post('/fund',CrowdFunding);
 
 
 app.listen(process.env.PORT,(req,res)=>{
     console.log(`Server is Running On The Port ${process.env.PORT}`);
     connect();
-})
+});
