@@ -29,7 +29,7 @@ const job = new mongoose.Schema(
       type: String,
       require: true,
     },
-    TimeOfPost:{
+    DateOfPost:{
         type : String
     }
   },
