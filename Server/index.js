@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import authRouter from "../Server/router/auth.js";
-
+import passRouter from "../Server/router/password.js";
 const app = express();
 dotenv.config();
 
@@ -24,6 +24,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.use("/api/auth",authRouter);
+app.use("/api/pass",passRouter);
 
 
 app.listen(process.env.PORT,(req,res)=>{
