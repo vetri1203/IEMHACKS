@@ -18,7 +18,7 @@ export const Recruitment = async (req, res) => {
     }
     else{
    
-        const  TimeOfPost = new Date().toISOString().split('T')[0];
+        const  DateOfPost = new Date().toISOString().split('T')[0];
         const data = await new JobPost({
             JobName:JobName,
             JobType:JobType,
@@ -27,7 +27,7 @@ export const Recruitment = async (req, res) => {
             Salary:Salary,
             Description:Description,
             AboutCompany:AboutCompany,
-            TimeOfPost:TimeOfPost
+            DateOfPost:DateOfPost
 
         });
 

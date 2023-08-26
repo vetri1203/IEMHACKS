@@ -27,9 +27,15 @@ const jobseeker = new mongoose.Schema({
         type:String,
         require:true
     },
-    resume :{
+    Resume :{
         data : Buffer,
+        contentType : String
+    },
+    DateOfApply:{
+        type:String
     }
-});
+
+    
+},{ timestamps: true });
 
 export const JobSeeker = new mongoose.model('JobSeekerDetails',jobseeker);
