@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Register.css";
+import './Style/Register.css'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -35,7 +35,7 @@ function Register() {
           navigate("/login");
         } else {
           // Navigate to the "insta" page
-          navigate("/insta");
+          navigate("/login");
         }
       } catch (error) {
         console.log(error);
