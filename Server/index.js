@@ -11,7 +11,7 @@ import { JobSeeking } from './controller/JobSeeking.js';
 import { CrowdFunding } from './controller/CrowdFund.js';
 import { search } from './controller/Search.js';
 const app = express();
-dotenv.config();
+dotenv.config(); 
 
 const connect = async () =>{
     try{

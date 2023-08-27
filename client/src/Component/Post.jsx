@@ -21,7 +21,7 @@ const Post = ()=>{
 
         e.preventDefault();
         try{
-            const response = await axios.post("http://localhost:8081/job",{
+            const response = await axios.post("http://localhost:8082/job",{
                 JobName,JobType,Skills,Experince,Salary,Description,AboutCompany
             });
 

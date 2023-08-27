@@ -22,7 +22,7 @@ function ResetPassword() {
 
     if (Object.keys(validationErrors).length === 0){
         try{
-            const response = await axios.post("http://localhost:8080/api/pass/changePassword",{
+            const response = await axios.post("http://localhost:8082/api/pass/changePassword",{
                 email,
                 password
             });

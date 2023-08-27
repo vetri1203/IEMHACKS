@@ -20,7 +20,7 @@ const JobApply = ()=>{
 
         e.preventDefault();
         try{
-            const response = await axios.post("http://localhost:8081/apply",{
+            const response = await axios.post("http://localhost:8082/apply",{
                 FirstName,LastName,Mail,PhoneNumber,Qualifation,Experince
             });
 

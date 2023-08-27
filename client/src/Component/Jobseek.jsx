@@ -13,7 +13,7 @@ const JobSeek = () => {
   const SearchJob = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8081/search", {
+      const response = await axios.post("http://localhost:8082/search", {
         JobName,
       });
 

@@ -21,7 +21,7 @@ function Login() {
     // Check if there are validation errors
     if (Object.keys(validationErrors).length === 0) {
       try {
-        const response = await axios.post("http://localhost:8081/api/auth/login",{
+        const response = await axios.post("http://localhost:8082/api/auth/login",{
           email,
           password
         });
