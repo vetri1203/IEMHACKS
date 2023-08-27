@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Playfair+Display&family=Signika+Negative:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,300&display=swap');
+
+
+.home_img {
+    height: 400px;
+    position: absolute;
+    right: 5%;
+    margin-top: -15%;
+}
+
+.intro {
+    color: #646060;
+    font-size: 22px;
+    /* font-family: 'Luxurious Roman', cursive;
+    font-family: 'Playfair Display', serif; */
+    font-family: 'Signika Negative', sans-serif;
+
+}
+
+.redirect_info{
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 40px;
+}
+
+.logContainer{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+
+
+
+
+.jobserarch{
+    height: 15px;
+    padding-left: 5px;
+
+
+    /* position: absolute; */
+    
+
+    
+}
+.btnsearch{
+
+margin-top: 25%;
+margin-left: 18%;
+display: flex;
+flex-direction: row;
+align-items: end;
+
+}
+
+.btnpost{
+
+    margin-top: -38px;
+margin-left: 27%;
+display: flex;
+flex-direction: row;
+align-items: end;
+padding: 10px;
+padding-left: 25px;
+padding-right: 25px;
+}
+.searchtext{
+    /* margin-top: 5px; */
+}
+
+.btn_link{
+
+}
+
+
+footer {
+    position: absolute;
+    bottom: 5px;
+}
