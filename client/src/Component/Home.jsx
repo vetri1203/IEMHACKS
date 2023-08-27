@@ -14,7 +14,7 @@ const Home = () => {
 
 
     const JobRedirect =()=>{
-        navigate('/login');
+        navigate('/apply');
     }
   return (
     <>
