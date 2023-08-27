@@ -24,11 +24,14 @@ const JobSeek = () => {
     }
 
     return (
-        <div className="containerJob">
-            <Nav2/>
-            <form onSubmit={SearchJob}>
-                <input type="text" value={JobName} onChange={e => setJobName(e.target.value)} placeholder="Enter the Skills" />
-                <button type="submit">Search</button>
+        <>
+
+        <Nav2/>
+
+<div className="containerJob">
+            <form onSubmit={SearchJob}  className="searchForm">
+                <input type="text" value={JobName} onChange={e => setJobName(e.target.value)} placeholder="Enter the Role" />
+                <button type="submit" className="searchbtn">Search</button>
             </form>
             
             <div className="output">
@@ -39,11 +42,14 @@ const JobSeek = () => {
                         <p><span className="heading">Skills:</span> <span>{data.Skills}</span></p>
                         <p><span className="heading">AboutCompany:</span> <span>{data.AboutCompany}</span></p>
                         <br />
+                        <button className="searchCart">Show More</button>
                         {/* Add more properties as needed */}
                     </div>
                 ))}
             </div>
         </div>
+        </>
+       
     );
 }
 

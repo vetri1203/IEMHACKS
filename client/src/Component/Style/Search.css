@@ -50,17 +50,11 @@ button {
 }
 
 
-.common{
-    background-color: white;
-    box-shadow:#333  1px 1px;
-    gap: 5px;
-
-}
-
 
 .heading{
     font-size: 20px;
     font-weight: bold;
+    margin-left: 30px;
 }
 
 
@@ -83,6 +77,74 @@ button {
 .output .post:hover {
     background-color: #f0f0f0;
 }
+/* .common {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+    height: 300px;
+} */
+
+/* .output {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 200px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+} */
+.output {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 250px;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+.common {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+    height: 300px;
+    justify-content: space-evenly;
+    background-color: white;
+    box-shadow:#333  1px 1px 1px 1px;
+    border-color: black;
+    border-radius: 8px;
+}
+.common:hover{
+    /* background-color: black; */
+    /* color: white; */
+    box-shadow:#c7c5c5  5px 5px 4px 2px;
+    transition: .5s;
+}
+.searchCart{
+    margin-left: 80px;
+}
+
+.searchForm {
+    position: absolute;
+    top: 5px;
+    left: 35%;
+}
+
+.searchbtn{
+    background-color: red;
+    /* margin-right: 20px; */
+}
+button.searchbtn {
+    margin-left: -88px;
+    padding: 9px;
+    padding-left: 19px;
+}
+.searchbtn :hover{
+    background-color: red;
+
+}
+
 
 /* Other styles */
 
