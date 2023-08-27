@@ -10,6 +10,7 @@ import ForgetPassword from "./Component/ForgetPassword";
 import ResetPassword from "./Component/ResetPassword";
 import Blog from "./Component/Blog";
 import Jonseek from "./Component/Jobseek";
+import Post from "./Component/Post";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,6 +25,7 @@ root.render(
       <Route path="/resetPassword" Component={ResetPassword}/>
       <Route path="/blog" Component={Blog}/>
       <Route path="/apply" Component={Jonseek}/>
+      <Route path="/postjob" Component={Post}/>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -12,7 +12,7 @@ export const Recruitment = async (req, res) => {
       AboutCompany,
     } = req.body;
 
-    if(!JobName,!JobType,!Skills,!Description,!AboutCompany){
+    if(!JobName,!JobType,Skills,!Description,!AboutCompany){
         res.status(400).send({message :"Eneter all required fields"});
         return
     }

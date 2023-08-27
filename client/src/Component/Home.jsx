@@ -8,7 +8,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     const PostRedirect =() =>{
-        navigate('/login')
+        navigate('/postjob')
 
     }
 
