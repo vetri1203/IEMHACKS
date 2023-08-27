@@ -1,23 +1,39 @@
-
+*{
+}
 
 .nav2_logo{
     position: absolute;
     top: 0px;
     height: 46px;
 }
+
+.userlogo :hover{
+    cursor: pointer;
+}
+.userlogo{
+    position: absolute;
+    height: 46px;
+
+    /* margin-left: 92px; */
+    color: #000;
+    border-radius: 46%;
+}
 .rigth{
     display: flex;
     margin-top: -8px;
     float: inline-end;
-
-    justify-content: flex-end;
-    width: 100vw;
+    margin-left: 82%;
+    /* justify-content: flex-end; */
+    /* width: 90vw; */
     
 
 }
 
+
+
 .nav2Container{
     background-color: #4973ee;
+   /* padding-left: 50px; */
 }
 
 .navbar {
@@ -54,6 +70,8 @@
   .navbar a:hover, .dropdown:hover .dropbtn {
     background-color: red;
   }
+
+  
   
   .dropdown-content {
     display: none;

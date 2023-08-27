@@ -7,26 +7,33 @@ const Nav2 = () => {
         <div className="nav2Container">
           {/* <img src="../images/Facebook-logo.png" alt=""  />
            */}
-
-          <nav cla>
-            <img
+           <img
               className="nav2_logo"
               src={require("../images/joblogo.jpeg")}
               alt="Register"
             />
+            {/* <span className="logo_name">Aluminoid</span> */}
+
+          <nav className="nav2">
+            
             <div className="rigth">
               <div className="navbar">
-                <a href="#home">Home</a>
-                <a href="#news">News</a>
+                <a href="/home">Fund</a>
+                <a href="/home">Job</a>
                 <div className="dropdown">
                   <button className="dropbtn">
                     Reference
                     <i className="fa fa-caret-down"></i>
                   </button>
                   <div className="dropdown-content">
-                    <a href="/login">Blog</a>
-                    <a href="/login">Tutorial</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/blog">Tutorial</a>
+                    
                   </div>
+                  <img className="userlogo"
+              src={require("../images/download.png")}
+              alt="Register"
+            />
                 </div>
               </div>
             </div>
