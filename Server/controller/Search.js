@@ -23,4 +23,4 @@ export const search = async (req, res) => {
     } catch (e) {
         res.send({ message: "An error occurred", error: e });
     }
-}
+}   
