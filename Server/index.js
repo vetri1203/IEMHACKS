@@ -9,6 +9,7 @@ import passRouter from "../Server/router/password.js";
 import { Recruitment } from './controller/JobRecruitment.js';
 import { JobSeeking } from './controller/JobSeeking.js';
 import { CrowdFunding } from './controller/CrowdFund.js';
+import { search } from './controller/Search.js';
 const app = express();
 dotenv.config();
 
@@ -34,6 +35,7 @@ app.use("/api/pass",passRouter);
 app.post('/job',Recruitment)
 app.post('/apply',JobSeeking);
 app.post('/fund',CrowdFunding);
+app.post('/search',search);
 
 
 app.listen(process.env.PORT,(req,res)=>{

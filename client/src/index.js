@@ -9,6 +9,7 @@ import Login from "./Component/Login";
 import ForgetPassword from "./Component/ForgetPassword";
 import ResetPassword from "./Component/ResetPassword";
 import Blog from "./Component/Blog";
+import Jonseek from "./Component/Jobseek";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,6 +23,7 @@ root.render(
       <Route path="/forgetPassword" Component={ForgetPassword}/>
       <Route path="/resetPassword" Component={ResetPassword}/>
       <Route path="/blog" Component={Blog}/>
+      <Route path="/apply" Component={Jonseek}/>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>
