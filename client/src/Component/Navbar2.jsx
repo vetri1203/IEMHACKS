@@ -27,14 +27,14 @@ const Nav2 = () => {
                   </button>
                   <div className="dropdown-content">
                     <a href="/blog">Blog</a>
-                    <a href="/blog">Tutorial</a>
-                    
+                    <a href="/blog">Tutorial</a>  
                   </div>
-                  <img className="userlogo"
+                  
+                </div>
+                <img className="userlogo"
               src={require("../images/download.png")}
               alt="Register"
             />
-                </div>
               </div>
             </div>
           </nav>

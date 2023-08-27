@@ -15,7 +15,7 @@ const Funding = new mongoose.Schema({
     ContactInfo:{
         type:String
     },
-    Date:{
+    Date:{ 
         type:String
     }
 });

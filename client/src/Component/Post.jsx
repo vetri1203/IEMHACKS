@@ -2,7 +2,7 @@ import { useState } from "react";
 import Nav2 from "./Navbar2";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom'
-
+import './Style/JobPost.css'
 
 
 const Post = ()=>{
@@ -50,14 +50,17 @@ const Post = ()=>{
         <div className="postPage_container">
 
             <form action="post" className="postJob_form" onSubmit={postJob}>
-                <input type="text" value={JobName} onChange={e => setJobName(e.target.value)} placeholder="Role *" required={true} />
-                <input type="text" value={JobType} onChange={e => setJobType(e.target.value)} placeholder="JobType *" required={true} />
-                <input type="text" value={Skills} onChange={e => setSkills(e.target.value)} placeholder="Skills *" required={true} />
-                <input type="text" value={Experince} onChange={e => setExperince(e.target.value)} placeholder="Experince *" required={true}/>
-                <input type="text" value={Salary} onChange={e => setSalary(e.target.value)}  placeholder="Salary " />
-                <input type="text" value={Description} onChange={e => setDescription(e.target.value)} placeholder="Description *" required={true} />
-                <input type="text" value={AboutCompany} onChange={e => setAboutCompany(e.target.value)} placeholder="AboutCompany *" required={true} />
+                <div className="formcontent">
+                <input type="text" className="jobpostin_input" value={JobName} onChange={e => setJobName(e.target.value)} placeholder="Role ex:(SDE)*" required={true} />
+                <input type="text" className="jobpostin_input" value={JobType} onChange={e => setJobType(e.target.value)} placeholder="JobType ex:(full-time)*" required={true} />
+                <input type="text" className="jobpostin_input" value={Skills} onChange={e => setSkills(e.target.value)} placeholder="Skills *" required={true} />
+                <input type="text" className="jobpostin_input"  value={Experince} onChange={e => setExperince(e.target.value)} placeholder="Experince *" required={true}/>
+                <input type="text" className="jobpostin_input" value={Salary} onChange={e => setSalary(e.target.value)}  placeholder="Salary " />
+                <input type="text" className="jobpostin_input" value={Description} onChange={e => setDescription(e.target.value)} placeholder="Description *" required={true} />
+                <input type="text" className="jobpostin_input" value={AboutCompany} onChange={e => setAboutCompany(e.target.value)} placeholder="AboutCompany *" required={true} />
                 <button type="submit">Post Job</button>
+                </div>
+               
 
             </form>
             

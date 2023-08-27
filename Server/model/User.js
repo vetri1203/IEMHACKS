@@ -16,7 +16,7 @@ const RegisterSchema = new mongoose.Schema({
     minlength : 6
   },
 },
-{ timestamps: true }
+{ timestamps: true } 
 );
 
 export default mongoose.model("User", RegisterSchema);
