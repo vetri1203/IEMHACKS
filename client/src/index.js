@@ -8,6 +8,7 @@ import Register from "./Component/Register";
 import Login from "./Component/Login";
 import ForgetPassword from "./Component/ForgetPassword";
 import ResetPassword from "./Component/ResetPassword";
+import Blog from "./Component/Blog";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,6 +21,7 @@ root.render(
       <Route path="/login" Component={Login}/>
       <Route path="/forgetPassword" Component={ForgetPassword}/>
       <Route path="/resetPassword" Component={ResetPassword}/>
+      <Route path="/blog" Component={Blog}/>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>

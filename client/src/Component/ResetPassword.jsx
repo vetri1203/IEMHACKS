@@ -1,5 +1,5 @@
 import React from "react";
-import "./Register.css"
+import './Style/Register.css'
 import { useState, useEffect } from "react";
 import { useNavigate,useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
