@@ -1,0 +1,90 @@
+.containerJob {
+    text-align: center;
+    margin: 20px;
+}
+
+.form-container {
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.output {
+    margin-top: 20px;
+}
+
+.output .post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.output .post:hover {
+    background-color: #f0f0f0;
+}
+
+.output p {
+    margin: 5px 0;
+}
+
+
+.common{
+    background-color: white;
+    box-shadow:#333  1px 1px;
+    gap: 5px;
+
+}
+
+
+.heading{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* Other styles */
+
+.output .post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+/* Add margin to create a gap */
+.output .post + .post {
+    margin-top: 10px;
+    gap: 5px; /* Adjust the value as needed */
+}
+
+.output .post:hover {
+    background-color: #f0f0f0;
+}
+
+/* Other styles */
+
+
+/* Add more styles as needed */
