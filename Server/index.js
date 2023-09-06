@@ -10,7 +10,7 @@ import { Recruitment } from './controller/JobRecruitment.js';
 import { JobSeeking } from './controller/JobSeeking.js';
 import { CrowdFunding } from './controller/CrowdFund.js';
 import { search } from './controller/Search.js';
-const app = express();
+const app = express(); 
 dotenv.config(); 
 
 const connect = async () =>{

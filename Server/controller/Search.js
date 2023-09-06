@@ -3,13 +3,12 @@ import { JobPost } from "../model/JobPost.js";
 export const search = async (req, res) => {
     try {
         const {
-            JobName,
-            Skills
+            JobName
         } = req.body;
 
         const Job = new RegExp(JobName, "i"); 
-        const skill = new RegExp(Skills, "i"); 
-        const filter = await JobPost.find({ JobName: Job  ,Skills:skill });
+        // const skill = new RegExp(Skills, "i"); 
+        const filter = await JobPost.find({ JobName: Job });
 
         if (filter.length > 0) {
             const response = {

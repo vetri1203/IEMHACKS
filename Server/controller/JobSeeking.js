@@ -12,7 +12,7 @@ export const JobSeeking = async(req,res)=>{
             }
         });
 
-        const upload = multer({
+        const upload = multer({ 
             storage:storage,
         }).single("Resume");
 
@@ -22,7 +22,7 @@ export const JobSeeking = async(req,res)=>{
             if(err)
             {
                 res.send({message:`Error : ${err}`});
-            }
+            }  
             else{
                 const time = new Date().toISOString().split('T')[0];
                 const {

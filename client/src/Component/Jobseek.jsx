@@ -17,13 +17,18 @@ const JobSeek = () => {
         JobName,
       });
 
-      if (response.data.matchingPosts != null) {
+      // console.log(response.data);
+
+      if (response.data.matchingPosts) {
         setMatchingPosts(response.data.matchingPosts);
-        console.log(response.data.matchingPosts);
+        // console.log(response.data.matchingPosts);
 
 
 
        
+      }
+      else{
+        alert("currently no matching Jobs,please try later")
       }
     } catch (error) {
       console.error("Error searching for jobs:", error);
@@ -50,14 +55,14 @@ const JobSeek = () => {
             onChange={(e) => setJobName(e.target.value)}
             placeholder="Enter the Role"
           />
-          <button type="submit"   className="searchbtn">
+          <button type="submit" onClick={SearchJob}   className="searchbtn">
             Search
           </button>
         </form>
 
         <div className="output">
           {matchingPosts.map((data, index) => (
-            <div key={index} id={index} className="common ${index}">
+            <div key={index} id={index} className={'common ${index}'}>
               {/* Display your data details here */}
               <p>
                 {" "}
