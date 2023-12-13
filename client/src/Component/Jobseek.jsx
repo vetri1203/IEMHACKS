@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import "./Style/Search.css";
 import Nav2 from "./Navbar2";
 const JobSeek = () => {
-
   const navigate = useNavigate();
   const [JobName, setJobName] = useState("");
   const [matchingPosts, setMatchingPosts] = useState([]);
@@ -17,34 +16,30 @@ const JobSeek = () => {
         JobName,
       });
 
-      // console.log(response.data);
+      console.log(response.data.message);
 
-      if (response.data.matchingPosts) {
+      if (response.data.matchingPosts != null) {
         setMatchingPosts(response.data.matchingPosts);
-        // console.log(response.data.matchingPosts);
-
-
-
-       
-      }
-      else{
-        alert("currently no matching Jobs,please try later")
+        console.log(response.data.matchingPosts);
+      } else {
+        alert("currently no matching Jobs,please try later");
       }
     } catch (error) {
       console.error("Error searching for jobs:", error);
     }
   };
 
-  const HandleApply = () =>{
-    navigate('/applyform')
-  }  
+  const HandleApply = (company) => {
+    // navigate("/applyform");
+    console.log(company);
+    navigate("/applyform", { state: { company } });
+  };
 
   return (
     <>
-    <div className="navstore">
-      <Nav2 />
-
-    </div>
+      <div className="navstore">
+        <Nav2 />
+      </div>
 
       <div className="containerJob">
         <form onSubmit={SearchJob} className="searchForm">
@@ -55,31 +50,34 @@ const JobSeek = () => {
             onChange={(e) => setJobName(e.target.value)}
             placeholder="Enter the Role"
           />
-          <button type="submit" onClick={SearchJob}   className="searchbtn">
+          <button type="submit" onClick={SearchJob} className="searchbtn">
             Search
           </button>
         </form>
 
         <div className="output">
           {matchingPosts.map((data, index) => (
-            <div key={index} id={index} className={'common ${index}'}>
-              {/* Display your data details here */}
+            <div key={index} id={index} className={"common ${index}"}>
               <p>
                 {" "}
-                <span className="heading">JobName:</span>
+                <span className="heading">JobName : </span>
                 <span>{data.JobName}</span>{" "}
               </p>
               <p>
-                <span className="heading">Skills:</span>{" "}
+                <span className="heading">Skills : </span>{" "}
                 <span>{data.Skills}</span>
               </p>
               <p>
-                <span className="heading">AboutCompany:</span>{" "}
+                <span className="heading">AboutCompany : </span>{" "}
                 <span>{data.AboutCompany}</span>
               </p>
               <br />
-              <button className="searchCart" onClick={HandleApply}>Apply</button>
-              {/* Add more properties as needed */}
+              <button
+                className="searchCart"
+                onClick={() => HandleApply(data._id)}
+              >
+                view..
+              </button>
             </div>
           ))}
         </div>

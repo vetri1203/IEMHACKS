@@ -18,11 +18,11 @@ export const register = async (req, res, next) => {
   //  Creating new User
   try {
     const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.password, salt);
+    const hash = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
       username: req.body.username,
-      email: req.body.email, 
+      email: req.body.email,
       password: hash,
     });
     // Saving new User
@@ -33,9 +33,6 @@ export const register = async (req, res, next) => {
   }
   // next();
 };
-
-
-
 
 export const login = async (req, res, next) => {
   const { email, password } = req.body;
@@ -59,7 +56,7 @@ export const login = async (req, res, next) => {
       req.cookies[`${user._id}`] = "";
     }
 
-    // console.log("Generated Token\n",token);
+    console.log("Generated Token\n", token);
 
     res.cookie(String(user._id), token, {
       path: "/",
@@ -73,5 +70,5 @@ export const login = async (req, res, next) => {
       .json({ message: "Logged In SuccessFully!!!", user: user, token });
   } catch (err) {
     next(err);
-  } 
+  }
 };

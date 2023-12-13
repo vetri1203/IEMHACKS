@@ -1,10 +1,9 @@
 import User from "../model/User.js";
 import bcrypt from "bcrypt";
 import OTPModule from "../model/OTPModel.js";
-import nodemailer from 'nodemailer';
-import otpGenerator from 'otp-generator';
+import nodemailer from "nodemailer";
+import otpGenerator from "otp-generator";
 import jwt from "jsonwebtoken";
-
 
 export const resetPassword = async (req, res) => {
   try {
@@ -16,14 +15,12 @@ export const resetPassword = async (req, res) => {
     }
 
     const otp = otpGenerator.generate(4, {
-      upperCase: false,
+      lowerCaseAlphabets: false,
+      upperCaseAlphabets: false,
       specialChars: false,
     });
 
     // Store the OTP in your storage mechanism
-    // otpStorage[email] = otp;
-
-    // const token = jwt.sign({id: user._id}, process.env.JWT, {expiresIn: "1hr"});
 
     var transporter = nodemailer.createTransport({
       service: "gmail",
@@ -34,10 +31,10 @@ export const resetPassword = async (req, res) => {
     });
 
     var mailOptions = {
-      from: process.env.MY_EMAIL,
+      from: `"Aluminoid" ${process.env.MY_EMAIL}`,
       to: email,
-      subject: "Sending Email using Node.js",
-      html: `OTP-${otp}`,
+      subject: "Mail from Aluminoid to reset user password",
+      html: `OTP- <b>${otp}</b>`,
     };
 
     transporter.sendMail(mailOptions, async function (error, info) {
@@ -60,7 +57,7 @@ export const resetPassword = async (req, res) => {
             { email: email },
             { otp: otp },
             { new: true }
-          ).exec();
+          );
         }
       }
     });
@@ -70,7 +67,7 @@ export const resetPassword = async (req, res) => {
   }
 };
 
-export const verifyOTP = async (req, res) => {
+export const verifyOTP = async (req, res, next) => {
   try {
     const email = req.body.email;
     const userOTP = req.body.otp;
@@ -93,9 +90,8 @@ export const verifyOTP = async (req, res) => {
   }
 };
 
-
-export const changePassword = async (req,res) =>{
-    // console.log(req.body);
+export const changePassword = async (req, res) => {
+  // console.log(req.body);
   const email = req.body.email;
   const pass = req.body.password;
 
@@ -107,15 +103,11 @@ export const changePassword = async (req,res) =>{
   try {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(pass, salt);
-    User.findOneAndUpdate(
-      { email: email },
-      { password: hash },
-      { new: true }
-    ).exec();
+    User.findOneAndUpdate({ email: email }, { password: hash }, { new: true });
 
     return res.status(200).send("Password Updated!!");
   } catch (err) {
     console.log(err);
     return res.send("Error");
   }
-}
+};

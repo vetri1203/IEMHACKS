@@ -1,67 +1,69 @@
-import React from 'react'
-import './Style/Register.css'
-import { useState } from "react";
-import {useNavigate } from "react-router-dom";
-import axios from 'axios'
+import React, { useState, useRef } from "react";
+import "./Style/Register.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function ForgetPassword() {
   const [email, setEmail] = useState("");
-  const [otpDigits, setOtpDigits] = useState(['', '', '', '']);
+  const otpInputRefs = [useRef(), useRef(), useRef(), useRef()];
   const navigate = useNavigate();
 
   const handleDigitChange = (index, value) => {
-    const updatedDigits = [...otpDigits];
-    updatedDigits[index] = value;
-    setOtpDigits(updatedDigits);
-  };  
+    if (value.match(/^\d$/) && index < otpInputRefs.length - 1) {
+      otpInputRefs[index + 1].current.focus();
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-        let response = await axios.post('http://localhost:8080/api/pass/resetPassword',{email});
-
-        if(response.data === "User Not Found! Please Register..."){
-          alert("User Not Found! Please Register...");
-        }
-        else if(response.data === "Email sent successfully"){
-          alert("Email sent successfully");
-        }else if(response.data === "An error occurred while sending the email"){
-          alert("An error occurred while sending the email");
-        }else if(response.data === "An error occurred"){
-          alert("An error occurred");
-        }else{
-          alert("Server Busy Try after some time ")
-        }
-    }catch(err){
+    try {
+      let response = await axios.post(
+        "http://localhost:8082/api/pass/resetPassword",
+        { email }
+      );
+      if (response.data === "User Not Found! Please Register...") {
+        alert("User Not Found! Please Register...");
+      } else if (response.data === "Email sent successfully") {
+        alert("Email sent successfully");
+      } else if (
+        response.data === "An error occurred while sending the email"
+      ) {
+        alert("An error occurred while sending the email");
+      } else if (response.data === "An error occurred") {
+        alert("An error occurred");
+      } else {
+        alert("Enter correct Email");
+      }
+    } catch (err) {
       console.log(err);
     }
   };
 
-
-  const handleSubmitOTP = async (e) =>{
+  const handleSubmitOTP = async (e) => {
     e.preventDefault();
-    const userOTP = otpDigits.join('');
-    // console.log(otp);
-    try{
-       let response = await axios.post("http://localhost:8080/api/pass/verifyOTP",{
-        email,
-        otp : userOTP
-       });
+    const userOTP = otpInputRefs.map((ref) => ref.current.value).join("");
 
-       console.log(response.data);
+    try {
+      let response = await axios.post(
+        "http://localhost:8082/api/pass/verifyOTP",
+        {
+          email,
+          otp: userOTP,
+        }
+      );
 
-       if(response.data === "OTP not found"){
-        alert("Please Enter OTP")
-       }else if(response.data === "OTP verified successfully"){
-        alert("OTP verified successfully")
-        navigate("/resetPassword",{state : {message :email}});
-       }else if(response.data === "Invalid OTP"){
+      if (response.data === "OTP not found") {
+        alert("Please Enter OTP");
+      } else if (response.data === "OTP verified successfully") {
+        alert("OTP verified successfully");
+        navigate("/resetPassword", { state: { message: email } });
+      } else if (response.data === "Invalid OTP") {
         alert("Invalid OTP");
-       }
-    }catch(err){
+      }
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   return (
     <div className="body">
@@ -76,10 +78,10 @@ function ForgetPassword() {
             <label>Email</label>
             <br />
             <input
-              type="text"
+              type="email"
               placeholder="Enter Email"
               name="Email"
-              autoComplete="off"
+              // autoComplete="off"
               required
               onChange={(e) => setEmail(e.target.value)}
             ></input>
@@ -87,13 +89,14 @@ function ForgetPassword() {
           <button type="submit">Get OTP</button>
         </form>
 
-        <form onSubmit={handleSubmitOTP} style={{ marginTop: '20px' }}>
-          {otpDigits.map((digit, index) => (
+        <form onSubmit={handleSubmitOTP} style={{ marginTop: "20px" }}>
+          {otpInputRefs.map((ref, index) => (
             <input
               key={index}
               type="text"
+              autoComplete="off"
               maxLength={1}
-              value={digit}
+              ref={ref}
               onChange={(e) => handleDigitChange(index, e.target.value)}
               style={{ width: "30px", marginRight: "10px" }}
               required
@@ -105,6 +108,6 @@ function ForgetPassword() {
       </div>
     </div>
   );
-} 
+}
 
-export default ForgetPassword
+export default ForgetPassword;

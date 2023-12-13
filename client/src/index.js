@@ -20,7 +20,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
-      <Route path="/" Component={App}/>
+      <Route path="/" Component={Login}/>
       <Route path="/home" Component={Home}/>
       <Route path="/register" Component = {Register} />
       <Route path="/login" Component={Login}/>
